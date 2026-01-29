@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Classify{% endblock %}
+
+{% block content %}
+<p style="color: var(--text-secondary); margin-bottom: 24px;">
+  Predict label: <strong>Business</strong>, <strong>Entertainment</strong>, or <strong>Health</strong>.
+</p>
+
+{% if not model_ready %}
+<div class="warn">
+  <strong>Model missing.</strong>
+  Run training script first.
+</div>
+{% endif %}
+
+<form method="post">
+  {% csrf_token %}
+  <textarea name="text" placeholder="Paste content here to classify...">{{ text }}</textarea>
+
+  <div style="display: flex; justify-content: flex-end; margin-top: 24px;">
+    <button type="submit" class="btn-huge"
+      style="width: 80px; height: 80px; font-size: 12px; border-radius: 12px;">PREDICT</button>
+  </div>
+</form>
+
+{% if label %}
+<div style="margin-top: 40px; text-align: center;">
+  <div style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">PREDICTION</div>
+  <div style="font-size: 48px; font-weight: 900; color: var(--accent); text-transform: uppercase;">{{ label }}</div>
+
+  {% if response_time %}
+  <div style="font-family: monospace; color: var(--text-secondary); margin-top: 10px;">
+    IN {{ response_time|floatformat:3 }}s
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

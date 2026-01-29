@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 40px;">
+  Search publications from Coventry University's Research Centre for Computational Science and Mathematical Modelling.
+</p>
+
+<form action="{% url 'search' %}" method="get">
+  <input type="hidden" id="stem_value" name="stem" value="0">
+
+  <div class="split-container">
+    <div class="search-input-group">
+      <input type="text" name="q" class="input-huge" placeholder="ENTER KEYWORDS..." required>
+
+      <div class="options-row" style="display: flex; gap: 20px;">
+        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" name="specialized" value="1">
+          CSM Centre Only
+        </label>
+        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+          <input type="checkbox" id="stem_box"
+            onclick="document.getElementById('stem_value').value = this.checked ? '1' : '0';">
+          Enable Stemming
+        </label>
+      </div>
+    </div>
+
+    <div class="search-action-group">
+      <button type="submit" class="btn-huge">GO</button>
+    </div>
+  </div>
+</form>
+
+<p class="helper" style="margin-top: 60px;">
+  <span class="icon">💡</span> Tip: Run the crawler to build the index before searching.
+</p>
+{% endblock %}

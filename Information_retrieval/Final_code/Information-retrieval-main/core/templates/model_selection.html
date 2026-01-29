@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Model Selection{% endblock %}
+
+{% block content %}
+<p style="color: var(--text-secondary); margin-bottom: 24px;">
+    Compare performance metrics across different classifiers.
+</p>
+
+{% if not results %}
+<div class="warn">
+    <strong>No data found.</strong><br>
+    Make sure the dataset is available at <code>data/news_dataset.csv</code>.
+</div>
+{% else %}
+<div class="card" style="padding: 0; overflow: hidden;">
+    <table style="width: 100%; border-collapse: collapse; color: var(--text-primary);">
+        <thead>
+            <tr style="background: var(--bg-sidebar); border-bottom: 1px solid var(--border);">
+                <th style="padding: 16px; text-align: left;">Model</th>
+                <th style="padding: 16px; text-align: right;">Accuracy</th>
+                <th style="padding: 16px; text-align: right;">Precision</th>
+                <th style="padding: 16px; text-align: right;">Recall</th>
+                <th style="padding: 16px; text-align: right;">F1 Score</th>
+                <th style="padding: 16px; text-align: right;">Time (s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in results %}
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 16px; font-weight: 600; color: var(--accent);">{{ r.name }}</td>
+                <td style="padding: 16px; text-align: right;">{{ r.accuracy }}</td>
+                <td style="padding: 16px; text-align: right;">{{ r.precision }}</td>
+                <td style="padding: 16px; text-align: right;">{{ r.recall }}</td>
+                <td style="padding: 16px; text-align: right;">{{ r.f1 }}</td>
+                <td style="padding: 16px; text-align: right; font-family: monospace;">{{ r.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div style="margin-top: 24px;">
+    <h3 style="color: var(--text-primary); margin-bottom: 16px;">Analysis</h3>
+    <p style="color: var(--text-secondary); line-height: 1.6;">
+        The table above shows 5-fold cross-validation or hold-out validation metrics.
+        <strong>MultinomialNB</strong> is typically faster for text classification,
+        while <strong>SVC</strong> or <strong>Logistic Regression</strong> might offer better F1 scores depending on the
+        dataset balance.
+    </p>
+</div>
+{% endif %}
+{% endblock %}

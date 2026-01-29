@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load highlight_tags %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<style>
+  .search-highlight {
+    background-color: rgba(255, 235, 59, 0.4);
+    color: inherit;
+    padding: 1px 2px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+</style>
+
+<form action="{% url 'search' %}" method="get">
+  <div class="split-container" style="margin-top: 0; margin-bottom: 10px;">
+    <input type="text" name="q" value="{{ q }}" class="input-huge" style="font-size: 18px; padding: 16px;"
+      placeholder="Refine search..." required>
+    <button type="submit" class="btn-huge" style="width: 80px; height: 80px; font-size: 14px;">GO</button>
+  </div>
+
+  <div style="margin-bottom: 30px; display: flex; gap: 20px; align-items: center;">
+    <label class="toggle-container"
+      style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-secondary); font-size: 14px;">
+      <input type="checkbox" name="specialized" value="1" {% if specialized %}checked{% endif %}
+        onchange="this.form.submit()" style="cursor: pointer;">
+      <span>CSM Research Centre Only</span>
+    </label>
+    <label class="toggle-container"
+      style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: var(--text-secondary); font-size: 14px;">
+      <input type="checkbox" name="stem" value="1" {% if use_stemming %}checked{% endif %} onchange="this.form.submit()"
+        style="cursor: pointer;">
+      <span>Use Stemming</span>
+    </label>
+  </div>
+</form>
+
+{% if not has_index %}
+<div class="warn">
+  <strong>Index missing</strong>
+  <pre
+    style="background: rgba(0,0,0,0.3); padding: 10px; border-radius: 8px;">python -m search_engine.crawler --seed ...</pre>
+</div>
+{% endif %}
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+  <h2 style="margin: 0; color: var(--text-primary);">Results</h2>
+  {% if response_time %}
+  <span style="color: var(--accent); font-family: monospace;">Done in {{ response_time|floatformat:3 }}s</span>
+  {% endif %}
+</div>
+
+{% if q and results|length == 0 %}
+<div class="card">No results found for "{{ q }}".</div>
+{% endif %}
+
+{% for r in results %}
+<div class="result">
+  <div class="result-title">
+    <a href="https://pureportal.coventry.ac.uk/en/searchAll?search={{ r.title|urlencode }}" target="_blank"
+      rel="noopener">{{ r.title|highlight:q }}</a>
+    <a href="https://scholar.google.com/scholar?q={{ r.title|urlencode }}" target="_blank" rel="noopener"
+      style="font-size: 12px; margin-left: 10px; color: var(--accent); text-decoration: none;"
+      title="Search on Google Scholar">
+      <i class="fas fa-external-link-alt"></i> Scholar
+    </a>
+  </div>
+  <div class="meta">
+    <span style="color: var(--accent);">{{ r.year }}</span> • Score: {{ r.score|floatformat:2 }}
+    {% if "CSM" in r.organisations %}
+    <span
+      style="margin-left: 12px; background: var(--accent); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; text-transform: uppercase;">CSM
+      Member</span>
+    {% endif %}
+  </div>
+  <div class="meta">
+    Authors: <span style="color: var(--text-primary);">
+      {% if r.authors %}
+      {% for author in r.authors %}
+      {{ author|highlight:q }}{% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      {% else %}
+      Unknown
+      {% endif %}
+    </span>
+  </div>
+  {% if r.abstract %}
+  <div class="meta" style="margin-top: 12px; line-height: 1.6;">{{ r.abstract|truncatechars:280|highlight:q }}</div>
+  {% endif %}
+</div>
+{% endfor %}
+{% endblock %}
