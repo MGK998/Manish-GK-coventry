@@ -1,0 +1,11 @@
+{
+  "audit": {
+    "raw_rows": 50900,
+    "duplicate_rows_removed": 900,
+    "rows_after_dedup": 50000,
+    "rows_with_missing_target_dropped": 180,
+    "final_modeling_rows": 49820,
+    "date_inconsistencies_fixed": 239
+  },
+  "reference_date": "2025-01-15"
+}

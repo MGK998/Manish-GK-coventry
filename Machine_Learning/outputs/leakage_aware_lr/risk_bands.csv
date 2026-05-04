@@ -1,0 +1,4 @@
+model,band,vehicles,avg_probability,actual_positive_rate
+leakage_aware_lr,Low,2953,0.22481420615288017,0.5956654249915341
+leakage_aware_lr,Medium,2421,0.55282900546965,0.7253201156546881
+leakage_aware_lr,High,4590,0.8677346327993197,0.9919389978213508

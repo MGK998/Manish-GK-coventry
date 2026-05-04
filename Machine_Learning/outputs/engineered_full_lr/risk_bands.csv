@@ -1,0 +1,4 @@
+model,band,vehicles,avg_probability,actual_positive_rate
+engineered_full_lr,Low,2253,0.08041221945876817,0.18908122503328895
+engineered_full_lr,Medium,457,0.5610663201671966,0.87527352297593
+engineered_full_lr,High,7254,0.9815964901765738,0.9983457402812241
