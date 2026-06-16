@@ -1,0 +1,5 @@
+cluster,size,avg_risk_score,avg_casualties,avg_hour,avg_temperature,pct_peak_hour,pct_weekend,top_weather,top_visibility,top_road_type,top_traffic_density
+0,3323,0.386,1.76,11.5,27.5,0.24,0.28,rain,medium,urban,high
+1,6690,0.237,1.72,11.5,27.6,0.24,0.28,clear,high,rural,low
+2,6633,0.589,1.72,11.5,27.7,0.26,0.29,fog,low,urban,low
+3,3354,0.589,1.72,11.3,27.5,0.25,0.29,rain,low,urban,high

@@ -1,0 +1,27 @@
+feature,importance
+risk_score,0.44377
+traffic_density_ohe_high,0.09313
+lanes,0.0574
+visibility_ohe_low,0.05216
+vehicles_involved,0.05096
+traffic_density_ohe_low,0.03793
+traffic_density_ohe_medium,0.03548
+visibility_ohe_medium,0.02078
+visibility_ohe_high,0.01777
+is_peak_hour,0.01654
+weather_ohe_clear,0.01573
+weather_ohe_fog,0.01312
+hour_bin_ohe_morning,0.01276
+road_type_ohe_highway,0.01269
+road_type_ohe_rural,0.01214
+hour_bin_ohe_night,0.01201
+road_type_ohe_urban,0.01151
+hour_bin_ohe_evening,0.01075
+cause_ohe_weather,0.01069
+cause_ohe_drunk driving,0.01061
+cause_ohe_overspeeding,0.0104
+cause_ohe_poor road,0.01022
+weather_ohe_rain,0.01003
+hour_bin_ohe_afternoon,0.00993
+cause_ohe_distraction,0.00865
+is_festival,0.00284

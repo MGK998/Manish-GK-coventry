@@ -1,0 +1,16 @@
+cause,accident_severity,accidents
+distraction,fatal,542
+distraction,major,1244
+distraction,minor,2240
+drunk driving,fatal,618
+drunk driving,major,1164
+drunk driving,minor,2196
+overspeeding,fatal,603
+overspeeding,major,1203
+overspeeding,minor,2219
+poor road,fatal,623
+poor road,major,1172
+poor road,minor,2179
+weather,fatal,601
+weather,major,1205
+weather,minor,2191

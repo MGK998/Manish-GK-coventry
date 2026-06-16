@@ -1,0 +1,25 @@
+city,state,accident_severity,accidents,avg_risk_score,avg_lat,avg_lon
+Bangalore,Karnataka,fatal,384,0.614,12.99932,77.60857
+Bangalore,Karnataka,major,707,0.419,13.00196,77.59972
+Bangalore,Karnataka,minor,1347,0.402,12.99895,77.59771
+Chandigarh,Punjab,fatal,378,0.605,30.69705,76.80127
+Chandigarh,Punjab,major,780,0.414,30.70132,76.8009
+Chandigarh,Punjab,minor,1419,0.413,30.69755,76.80159
+Chennai,Tamil Nadu,fatal,371,0.603,13.00211,80.19793
+Chennai,Tamil Nadu,major,794,0.42,13.00749,80.20043
+Chennai,Tamil Nadu,minor,1410,0.404,12.99814,80.20037
+Delhi,Delhi,fatal,382,0.61,28.63707,77.04373
+Delhi,Delhi,major,691,0.399,28.65584,77.04767
+Delhi,Delhi,minor,1360,0.408,28.65264,77.0446
+Hyderabad,Telangana,fatal,338,0.614,17.40186,78.40859
+Hyderabad,Telangana,major,752,0.412,17.39754,78.40702
+Hyderabad,Telangana,minor,1319,0.41,17.40183,78.39906
+Kolkata,West Bengal,fatal,377,0.593,22.55256,88.35531
+Kolkata,West Bengal,major,737,0.399,22.55521,88.3527
+Kolkata,West Bengal,minor,1445,0.411,22.5468,88.35261
+Mumbai,Maharashtra,fatal,359,0.622,19.05521,72.8458
+Mumbai,Maharashtra,major,798,0.394,19.0531,72.84561
+Mumbai,Maharashtra,minor,1335,0.408,19.04995,72.85175
+Pune,Maharashtra,fatal,398,0.6,18.56012,73.85488
+Pune,Maharashtra,major,729,0.397,18.54884,73.85061
+Pune,Maharashtra,minor,1390,0.409,18.5493,73.85291

@@ -1,0 +1,10 @@
+# Python dependencies for the Urban Road Safety Intelligence project.
+# Install into a virtual environment:  pip install -r requirements.txt
+#
+# PySpark is the sole analysis engine (assignment requirement). pandas +
+# pyarrow are used only to write single, tidy CSV files for Tableau.
+
+pyspark>=3.5.0
+pandas>=2.0.0
+pyarrow>=15.0.0
+numpy>=1.24.0

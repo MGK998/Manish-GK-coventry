@@ -1,0 +1,8 @@
+actual,predicted,count
+minor,minor,1489
+minor,major,706
+minor,fatal,2
+major,minor,798
+major,major,392
+major,fatal,3
+fatal,fatal,558
